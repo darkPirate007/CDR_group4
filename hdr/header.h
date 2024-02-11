@@ -1,9 +1,12 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <arpa/inet.h>
 
+#define PORT 12345
 #define MAX_LENGTH 1000
+
 
 typedef struct user
 {
@@ -30,22 +33,21 @@ typedef struct interOperator
 	long int uploaded;
 }INTOP;
 
+
 void menu();
-void logIn();
 void signUp();
-int authUser(char[], char[]);
+void logIn();
+int authUser();
 
 int processMenu();
 
 void billingMenu(CUSTOMER*);
 
-void customerDetails(CUSTOMER*);
+void billingMenuClient();
 
 CUSTOMER* processCDR();
 
-void customerBilling(CUSTOMER*);
-void interOperatorBilling(CUSTOMER*);
+void interOperatorBillingClient();
 void interOperatorBillingFile(CUSTOMER*);
 void customerBillingFile(CUSTOMER*);
-
-
+void customerBillingClient();
