@@ -6,6 +6,18 @@
 
 #define PORT 12345
 #define MAX_LENGTH 1000
+#define LOG_LEVEL_INFO     1
+#define LOG_LEVEL_WARNING  2
+#define LOG_LEVEL_ERROR    3
+#define LOG_LEVEL_FATAL    4
+
+// Macro for logging messages
+#define LOG(level, msg) \
+    do { \
+        if (level <= LOG_LEVEL_ERROR) { \
+            printf("[%s] %s\n", log_levels[level], msg); \
+        } \
+    } while (0)
 
 
 typedef struct user
